@@ -1,24 +1,11 @@
 {
-    "projects": [
-      {
-        "name": "client",
-        "root": "client",
-        "buildCommand": "npm run build",
-        "outputDirectory": "client/build"
-      },
-      {
-        "name": "server",
-        "root": "server",
-        "outputDirectory": "server"
-      }
-    ],
     "builds": [
       {
-        "src": "server/api/socket.js",
+        "src": "server/api/index.js",
         "use": "@vercel/node"
       },
       {
-        "src": "client/**",
+        "src": "client/package.json",
         "use": "@vercel/static-build",
         "config": {
           "distDir": "build"
