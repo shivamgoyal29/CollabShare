@@ -1,6 +1,6 @@
 const { Server } = require("socket.io");
 
-export default function handler(req, res) {
+module.export = function handler(req, res) {
   // Check if the socket server already exists to avoid creating it multiple times
   if (res.socket.server.io) {
     console.log("Socket.io server is already running");
@@ -59,4 +59,4 @@ export default function handler(req, res) {
   });
 
   res.end();
-}
+};
