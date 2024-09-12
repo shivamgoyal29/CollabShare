@@ -1,0 +1,39 @@
+{
+    "projects": [
+      {
+        "name": "client",
+        "root": "client",
+        "buildCommand": "npm run build",
+        "outputDirectory": "client/build"
+      },
+      {
+        "name": "server",
+        "root": "server",
+        "outputDirectory": "server"
+      }
+    ],
+    "builds": [
+      {
+        "src": "server/api/socket.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "client/**",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/client/$1"
+      }
+    ]
+  }
+  
